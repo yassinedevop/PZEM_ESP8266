@@ -105,7 +105,7 @@ void readSwitchStateFromFirebase()
         else
         {
             Serial.println("JSON parsed successfully!");
-            digitalWrite(15, doc["switchState"]);
+            digitalWrite(14, doc["switchState"]);
         }
         Serial.println(httpResponseCode);
         Serial.println(response);
