@@ -24,6 +24,18 @@ void loop()
     readSwitchStateFromFirebase();
     if (voltage != NAN && current != NAN && power != NAN && energy != NAN && frequency != NAN && pf != NAN)
         if (switchState != NAN)
+        {
             sendDataToFirebase();
+            if (switchState == 1)
+            {
+                digitalWrite(2, HIGH);
+                Serial.println("Switch is on");
+            }
+            else
+            {
+                digitalWrite(2, LOW);
+                Serial.println("Switch is off");
+            }
+        }
     delay(1000);
 }

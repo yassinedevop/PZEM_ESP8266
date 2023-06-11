@@ -105,7 +105,7 @@ void readSwitchStateFromFirebase()
         else
         {
             Serial.println("JSON parsed successfully!");
-            digitalWrite(14, doc["switchState"]);
+            switchState = doc["switchState"];
         }
         Serial.println(httpResponseCode);
         Serial.println(response);
@@ -115,6 +115,7 @@ void readSwitchStateFromFirebase()
         Serial.print("Error on sending POST: ");
         Serial.println(httpResponseCode);
     }
+    http.end();
 }
 
 // now we will send the readings to firebase
